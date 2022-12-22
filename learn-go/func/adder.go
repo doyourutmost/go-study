@@ -4,16 +4,9 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"learn-go/func/fib"
 	"strings"
 )
-
-func fibonacci() intGen {
-	a, b := 0, 1
-	return func() int {
-		a, b = b, a+b
-		return a
-	}
-}
 
 type intGen func() int
 
@@ -47,7 +40,7 @@ func main() {
 		fmt.Printf("0 + 1 + ... + %d = %d\n",
 			i, a(i))
 	}
-	f := fibonacci()
+	var f intGen = fib.Fibonacci()
 	printFileContents(f)
 	//fmt.Println(f())
 	//fmt.Println(f())
