@@ -1,0 +1,12 @@
+POST http://localhost:1234/json-rpc
+Content-Type: application/json
+
+{
+  "id": 0,
+  "params": [
+    "Golang"
+  ],
+  "method": "HelloService.Hello"
+}
+
+
