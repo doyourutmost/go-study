@@ -7,19 +7,15 @@ package main
 
 import (
 	"fmt"
-	"net/rpc"
 
-	"learn-go/rpc/stub/handler"
+	"learn-go/rpc/stub/client_proxy"
 )
 
 func main() {
 	// 1. 建立连接
-	client, err := rpc.Dial("tcp", "localhost:1234")
-	if err != nil {
-		panic(err)
-	}
+	client := client_proxy.NewHelloServiceClient("tcp", "localhost:1234")
 	var reply string
-	err = client.Call(handler.HelloServiceName+".Hello", "world~~~", &reply)
+	err := client.Hello("world 111", &reply)
 	if err != nil {
 		panic(fmt.Sprintf("调用失败: %s", err))
 	}
