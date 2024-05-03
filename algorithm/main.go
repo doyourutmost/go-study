@@ -17,7 +17,7 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 	arr := rand.Perm(1e8)
 	var wg sync.WaitGroup
-	wg.Add(1)
+	wg.Add(3)
 	// go task(&wg, sort.SelectionSort, arr)
 	// go task(&wg, sort.BubbleSort, arr)
 	// go task(&wg, sort.InsertionSort, arr)
