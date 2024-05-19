@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option go_package = ".;proto";
+
+enum Sex {
+  WOMAN = 0;
+  MAN = 1;
+  OTHER = 2;
+}

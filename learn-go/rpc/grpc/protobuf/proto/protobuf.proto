@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "protobuf_import.proto";
+option go_package = ".;proto";
+
+service Echo {
+  rpc TestEcho (EchoRequest) returns (EchoResponse);
+  rpc TestEmpty (google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+message EchoRequest {
+  string name = 1;
+  repeated string hobbies = 2;
+  optional string email = 3;
+  reserved 8 to 10; // 定义保留编号
+  reserved "email1", "name1"; // 定义保留字段名
+  Sex sex = 4;
+  Address address = 5;
+  Company company = 6;
+  google.protobuf.Any any = 7;
+  map<string, string> map = 11;
+  google.protobuf.Timestamp timestamp = 12;
+  message Company {
+    string name = 1;
+    Address address = 2;
+  }
+}
+
+message Address{
+  string province = 1;
+  string city = 2;
+}
+
+message EchoResponse {
+  string name = 1;
+  repeated string hobbies = 2;
+  optional string email = 3;
+  Sex sex = 4;
+  Address address = 5;
+  Company company = 6;
+  google.protobuf.Any any = 7;
+  message Company {
+    string name = 1;
+    Address address = 2;
+  }
+  map<string, string> map = 11;
+  google.protobuf.Timestamp timestamp = 12;
+}
