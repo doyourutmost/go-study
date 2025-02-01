@@ -1,0 +1,14 @@
+Name: user.rpc
+ListenOn: 127.0.0.1:8080
+Etcd:
+  Hosts:
+  - 127.0.0.1:2379
+  Key: user.rpc
+
+Mysql:
+  DataSource: root:123456789@tcp(127.0.0.1:3306)/go_zero?charset=utf8mb4&parseTime=True&loc=Local
+
+Cache:
+  - Host: 192.168.222.168:6379
+    Type: node
+    Pass: "123456789"
